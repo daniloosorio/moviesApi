@@ -43,14 +43,14 @@ class GetMoviesUseCaseTest {
     @Test
     fun `invoke get movies and return error`() = runTest{
         //GIVE
-        val movies = mockMovies
-        val moviesExpected = mockMovies
         coEvery { mockRepository.getMoviesByPageAndName() } returns Status.Error("Error de conexion")
 
         //WHEN
         val moviesResponse = getMoviesUseCase.invoke()
 
         //Then
-        assertTrue(moviesResponse is Status.Done)
+        assertTrue(moviesResponse is Status.Error)
+        val error = moviesResponse as Status.Error
+        assertEquals(error.messageError, "Error de conexion")
     }
 }
