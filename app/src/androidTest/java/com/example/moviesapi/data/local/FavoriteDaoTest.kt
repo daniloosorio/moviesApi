@@ -3,6 +3,7 @@ package com.example.moviesapi.data.local
 import androidx.test.filters.SmallTest
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
+import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
@@ -40,6 +41,6 @@ class FavoriteDaoTest {
 
         val favorite =  favoritesDao.getAllFavorites()
         assert(favorite.isNotEmpty())
-        assert(favorite[0].imdbID =="a")
+        assertEquals("b",favorite[0].imdbID)
     }
 }
