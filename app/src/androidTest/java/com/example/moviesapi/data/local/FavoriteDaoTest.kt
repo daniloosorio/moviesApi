@@ -41,6 +41,6 @@ class FavoriteDaoTest {
 
         val favorite =  favoritesDao.getAllFavorites()
         assert(favorite.isNotEmpty())
-        assertEquals("b",favorite[0].imdbID)
+        assertEquals("a",favorite[0].imdbID)
     }
 }
