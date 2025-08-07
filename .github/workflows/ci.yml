@@ -39,7 +39,12 @@ jobs:
         run: ./gradlew testDebugUnitTest
 
       - name: Instrumentation Test
-        run: ./gradlew connectedDebugAndroidTest
+        uses: ReactiveCircus/android-emulator-runner@v2
+        with:
+          api-level: 33  # Nivel de API del emulador
+          target: google_apis_playstore # Incluye Play Store
+          arch: x86_64
+          script: ./gradlew connectedDebugAndroidTest
 
       - name: Android Test Report
         uses: asadmansr/android-test-report-action@v1.2.0
