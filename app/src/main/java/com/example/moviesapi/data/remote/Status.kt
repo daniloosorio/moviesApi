@@ -1,4 +1,4 @@
-package com.example.moviesapi.data
+package com.example.moviesapi.data.remote
 
 sealed class Status<out T> {
     class Done<out T>(val data : T) : Status<T>()

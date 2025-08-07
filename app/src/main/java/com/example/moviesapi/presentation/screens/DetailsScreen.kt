@@ -6,13 +6,24 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.example.moviesapi.domain.MoviesDomainModel
+import com.example.moviesapi.presentation.viewmodel.DetailsScreenViewmodel
 
 @Composable
-fun DetailsScreen (item: MoviesDomainModel){
-    Column(modifier = Modifier.fillMaxSize().background(color = Color.Red)){
+fun DetailsScreen(item: MoviesDomainModel,
+                  viewmodel: DetailsScreenViewmodel = hiltViewModel()
+) {
+    LaunchedEffect(true) {
+        viewmodel.insertFavorite(item)
+        viewmodel.getAllFavorites()
+    }
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .background(color = Color.Red)) {
         Text(item.imdbID)
         Text(item.Title)
         Text(item.Poster)

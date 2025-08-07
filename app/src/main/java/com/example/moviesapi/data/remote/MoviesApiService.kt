@@ -1,4 +1,4 @@
-package com.example.moviesapi.data
+package com.example.moviesapi.data.remote
 
 import retrofit2.Call
 import retrofit2.http.GET

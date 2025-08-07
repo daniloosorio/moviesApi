@@ -1,12 +1,11 @@
 package com.example.moviesapi.presentation.viewmodel
 
 import android.util.Log
-import androidx.compose.runtime.MutableState
-import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.moviesapi.data.Status
+import com.example.moviesapi.data.remote.Status
 import com.example.moviesapi.domain.GetMoviesUseCase
+import com.example.moviesapi.domain.InsertFavoriteUseCase
 import com.example.moviesapi.domain.MoviesDomainModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import jakarta.inject.Inject
@@ -16,12 +15,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
-import okhttp3.Dispatcher
 
 @HiltViewModel
 class HomeScreenViewmodel
     @Inject constructor(
-        private val getMoviesUseCase : GetMoviesUseCase
+        private val getMoviesUseCase : GetMoviesUseCase //Dependecy injection
     ): ViewModel() {
     private val _states = MutableStateFlow(HomeScreenStates()) // encapsulamiento
     val uiState : StateFlow<HomeScreenStates> = _states.asStateFlow()
@@ -49,9 +47,4 @@ class HomeScreenViewmodel
             }
         }
     }
-
-    fun goToMovieDetail(imdbID: String) {
-
-    }
-
 }

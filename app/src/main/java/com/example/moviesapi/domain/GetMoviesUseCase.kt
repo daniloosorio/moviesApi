@@ -1,7 +1,6 @@
 package com.example.moviesapi.domain
 
-import com.example.moviesapi.data.MoviesDataModel
-import com.example.moviesapi.data.Status
+import com.example.moviesapi.data.remote.Status
 import com.example.moviesapi.repository.MoviesRepository
 import javax.inject.Inject
 

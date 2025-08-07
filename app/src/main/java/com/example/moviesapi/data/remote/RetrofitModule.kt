@@ -1,4 +1,4 @@
-package com.example.moviesapi.data
+package com.example.moviesapi.data.remote
 
 import com.example.moviesapi.repository.MoviesRepository
 import com.example.moviesapi.repository.MoviesRepositoryImpl
@@ -11,7 +11,9 @@ import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.kotlinx.serialization.asConverterFactory
+import java.time.Duration
 import javax.inject.Singleton
+
 
 @Module
 @InstallIn(SingletonComponent::class)
@@ -20,7 +22,7 @@ object RetrofitModule {
     @Provides
     @Singleton
     fun providesOkHttpClient() : OkHttpClient{
-        return OkHttpClient.Builder()
+        return OkHttpClient.Builder().connectTimeout(Duration.ofSeconds(1))
             .build()
     }
 

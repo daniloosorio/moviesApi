@@ -1,6 +1,6 @@
 package com.example.moviesapi.domain
 
-import com.example.moviesapi.data.Status
+import com.example.moviesapi.data.remote.Status
 import com.example.moviesapi.mockMovies
 import com.example.moviesapi.repository.MoviesRepository
 import io.mockk.coEvery

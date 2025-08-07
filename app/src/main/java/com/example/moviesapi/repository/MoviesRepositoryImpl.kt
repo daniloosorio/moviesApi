@@ -1,11 +1,8 @@
 package com.example.moviesapi.repository
 
-import com.example.moviesapi.data.MoviesApiService
-import com.example.moviesapi.data.MoviesDataModel
-import com.example.moviesapi.data.Status
+import com.example.moviesapi.data.remote.MoviesApiService
+import com.example.moviesapi.data.remote.Status
 import com.example.moviesapi.domain.MoviesDomainModel
-import kotlinx.serialization.json.Json
-import kotlinx.serialization.json.JsonObject
 import okio.IOException
 import retrofit2.awaitResponse
 import javax.inject.Inject

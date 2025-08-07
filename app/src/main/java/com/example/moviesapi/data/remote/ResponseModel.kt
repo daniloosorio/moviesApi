@@ -1,4 +1,4 @@
-package com.example.moviesapi.data
+package com.example.moviesapi.data.remote
 
 import com.example.moviesapi.domain.MoviesDomainModel
 import kotlinx.serialization.Serializable

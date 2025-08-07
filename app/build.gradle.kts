@@ -22,6 +22,7 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.moviesapi.HiltTestRunner"
     }
 
     buildTypes {
@@ -72,6 +73,9 @@ dependencies {
     implementation (libs.androidx.hilt.navigation.compose)
     implementation(libs.android.hilt)
     ksp(libs.hilt.android.compiler)
+    //test hilt
+    androidTestImplementation("com.google.dagger:hilt-android-testing:2.56.2")
+    kspAndroidTest("com.google.dagger:hilt-android-compiler:2.56.2")
 
     //retrofit
     implementation(libs.retrofit)
@@ -87,4 +91,11 @@ dependencies {
 
     //navigation
     implementation(libs.androidx.navigation.compose)
+
+    //Room
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    //room test
+    androidTestImplementation("androidx.room:room-testing:2.7.2")
 }
